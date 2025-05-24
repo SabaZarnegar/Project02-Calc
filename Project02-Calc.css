@@ -1,0 +1,99 @@
+body {
+    margin: 10px;
+    text-align: center;
+}
+
+.continer {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    background-color: rgb(212, 191, 191);
+    border-radius: 15px;
+    box-shadow: 10px 10px 5px rgb(210, 213, 213);
+    margin: 30px auto;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.display {
+    width: 100%;
+    height: 100px;
+    background-color: aquamarine;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+input[type="text"] {
+    margin-top: 30px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+    height: 50px;
+    border: none;
+    background: none;
+    box-sizing: border-box;
+    color: #000000;
+    text-align: right;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+input[type="button"] {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    text-align: center;
+    font-weight: 500;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.gray {
+    background: #585555 !important;
+    color: #ffffff !important;
+}
+
+.green {
+    background: #430438 !important;
+    color: #ffffff !important;
+}
+
+/* ریسپانسیو مخصوص گوشی */
+@media (max-width: 500px) {
+    input[type="button"] {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+
+    input[type="text"] {
+        font-size: 30px;
+    }
+
+    .display {
+        height: 80px;
+    }
+}
+
+
+.ac-row {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.ac-row input {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  font-size: 40px;
+}
