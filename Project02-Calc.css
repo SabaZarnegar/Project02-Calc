@@ -1,122 +1,131 @@
-/* حالت پیش‌فرض: دسکتاپ (عرض 768px به بالا) */
-body {
-    margin: 10px;
-    text-align: center;
-}
-
-.continer {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    background-color: rgb(212, 191, 191);
-    border-radius: 15px;
-    box-shadow: 10px 10px 5px rgb(210, 213, 213);
-    margin: 30px auto;
-    position: relative;
-    padding-bottom: 20px;
-}
-
-.display {
-    width: 100%;
-    height: 100px;
-    background-color: aquamarine;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-input[type="text"] {
-    margin-top: 30px;
-    width: 100%;
-    height: 50px;
-    border: none;
-    background: none;
-    box-sizing: border-box;
-    color: #000000;
-    text-align: right;
-    font-weight: 700;
-    font-size: 40px;
-    outline: none;
-}
-
-.row {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-input[type="button"] {
-    width: 70px;
-    height: 70px;
-    border-radius: 100%;
-    text-align: center;
-    font-weight: 500;
-    font-size: 30px;
-    border: none;
-    cursor: pointer;
-}
-
-.gray {
-    background: #585555 !important;
-    color: #ffffff !important;
-}
-
-.green {
-    background: #430438 !important;
-    color: #ffffff !important;
-}
-
-.ac-row {
-    display: flex;
-    justify-content: flex-start;
-    padding: 10px 20px;
-}
-
-.ac-row input {
-    width: 70px;
-    height: 70px;
-    border-radius: 100%;
-    font-size: 30px;
-}
-
-/* ✅ حالت موبایل: عرض کوچکتر یا مساوی با 768px */
-@media (max-width: 768px) {
-    input[type="button"] {
-        width: 50px;
-        height: 50px;
-        font-size: 22px;
-    }
-
-    input[type="text"] {
-        font-size: 28px;
-        height: 45px;
-        margin-top: 15px;
-    }
-
-    .display {
-        height: 70px;
-    }
-
-    .ac-row input {
-        width: 50px;
-        height: 50px;
-        font-size: 19px;
-    }
-
-    .row {
-        justify-content: space-around;
-        gap: 6px;
+ body {
+      margin: 10px;
+      text-align: center;
+      font-family: sans-serif;
     }
 
     .continer {
+      width: 100%;
+      max-width: 500px;
+      background-color: rgb(212, 191, 191);
+      border-radius: 15px;
+      box-shadow: 10px 10px 5px rgb(210, 213, 213);
+      margin: 30px auto;
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    .display {
+      width: 100%;
+      height: 100px;
+      background-color: aquamarine;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    input[type="text"] {
+      margin-top: 30px;
+      width: 100%;
+      height: 50px;
+      border: none;
+      background: none;
+      box-sizing: border-box;
+      color: #000000;
+      text-align: right;
+      font-weight: 700;
+      font-size: 40px;
+      outline: none;
+    }
+
+    .row {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    input[type="button"] {
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;
+      text-align: center;
+      font-weight: 500;
+      font-size: 30px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .gray {
+      background: #585555 !important;
+      color: #ffffff !important;
+    }
+
+    .green {
+      background: #430438 !important;
+      color: #ffffff !important;
+    }
+
+    .ac-row {
+      display: flex;
+      justify-content: flex-start;
+      padding: 10px 20px;
+    }
+
+    .ac-row input {
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      line-height: 1;
+    }
+
+    /* ✅ حالت موبایل (عرض کمتر از 768px) */
+    @media (max-width: 768px) {
+      input[type="button"],
+      .ac-row input {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        line-height: 1;
+      }
+
+      input[type="text"] {
+        font-size: 28px;
+        height: 45px;
+        margin-top: 15px;
+      }
+
+      .display {
+        height: 70px;
+      }
+
+      .row {
+        justify-content: space-around;
+        gap: 6px;
+      }
+
+      .continer {
         margin: 10px auto;
         padding-bottom: 10px;
+      }
     }
-}
