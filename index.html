@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آموزش مقدماتی جاوا اسکریپت</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .continer {
+            width: 500px;
+            height: 600px;
+            background-color: rgb(212, 191, 191);
+            border-radius: 15px;
+            box-shadow: 10px 10px 5px rgb(210, 213, 213);
+            margin-top: 30px;
+            margin-left: 550px;
+        }
+
+        .display {
+            width: 100%;
+            height: 100px;
+            background-color: aquamarine;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        input[type="text"] {
+            margin-top: 30px;
+            margin-right: 20px;
+            width: 270px;
+            height: 50px;
+            float: right;
+            border: none;
+            background: none;
+            box-sizing: border-box;
+            color: #000000;
+            text-align: right;
+            font-weight: 700;
+            font-size: 60px;
+
+        }
+
+        input[type="button"] {
+            width: 70px;
+            height: 70px;
+            margin-left: 10px;
+            margin-top: 20px;
+            border-radius: 100%;
+            text-align: center;
+            font-weight: 500;
+            font-size: 40px;
+            border: none;
+            cursor: pointer;
+            float: left;
+        }
+
+        .gray {
+
+            background: #585555 !important;
+            color: #ffffff !important;
+        }
+
+        .row {
+            float: left;
+            width: 500px;
+        }
+
+        .green {
+            background: #430438 !important;
+            color: #ffffff !important;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="continer">
+        <form name="form">
+            <div class="display">
+                <input type="text" placeholder="0" name="displayresult" id="displayResult">
+            </div>
+            <div>
+                <input type="button" onclick="reset()" value="AC" class="gray">
+            </div>
+            <div class="row">
+                <input type="button" name="b7" value="7" onclick="addToCalculator(b7.value)">
+                <input type="button" name="b8" value="8" onclick="addToCalculator(b8.value)">
+                <input type="button" name="b9" value="9" onclick="addToCalculator(b9.value)">
+                <input type="button" name="addb" value="+" onclick="addToCalculator(addb.value)">
+                <input type="button" name="abs" value="|x|" onclick="MathCalculator('abs')">
+                <input type="button" name="ceil" value="ce" onclick="MathCalculator('ceil')">
+
+
+            </div>
+            <div class="row">
+                <input type="button" name="b4" value="4" onclick="addToCalculator(b4.value)">
+                <input type="button" name="b5" value="5" onclick="addToCalculator(b5.value)">
+                <input type="button" name="b6" value="6" onclick="addToCalculator(b6.value)">
+                <input type="button" name="subb" value="-" onclick="addToCalculator(subb.value)">
+                <input type="button" name="sqrt" value="&radic;" onclick="MathCalculator('sqrt')">
+                <input type="button" name="floor" value="f" onclick="MathCalculator('floor')">
+
+
+
+            </div>
+            <div class="row">
+                <input type="button" name="b1" value="1" onclick="addToCalculator(b1.value)">
+                <input type="button" name="b2" value="2" onclick="addToCalculator(b2.value)">
+                <input type="button" name="b3" value="3" onclick="addToCalculator(b3.value)">
+                <input type="button" name="mulb" value="*" onclick="addToCalculator(mulb.value)">
+                <input type="button" name="round" value="r" onclick="MathCalculator('round')">
+                <input type="button" name="pow" value="^" onclick="MathCalculator('pow')">
+
+
+            </div>
+            <div class="row">
+                <input type="button" name="b0" value="0" onclick="addToCalculator(b0.value)">
+                <input type="button" name="potb" value="." onclick="addToCalculator(potb.value)">
+                <input type="button" name="divb" value="/" onclick="addToCalculator(divb.value)">
+                <input type="button" class="green" value="=" onclick="finialize()">
+            </div>
+
+
+
+
+        </form>
+    </div>
+    <script>
+
+        //math.round(): اعداد را گاهی به سمت بالا و گاهی به سمت پایین گرد میکند
+        //math.pow(): برای به توان رساندن تعداد به کار میرود
+        //math.sqrt(): ار اعداد رادیکال دو میگیرد
+        //math.abs(): ار اعداد قدر مطلق میگیرد و خروجی آن همیشه یک عدد مثبت خواهد بود
+        //math.ceil():اعداد را رو به بالا گرد میکند
+        //math.floor(): همیشه به سمت پایین گرد میکند
+
+        //ایجاد اعداد تصادفی در جاوا اسکریپت
+        //math.random():عددی که برمیگرداند بین صفر و یک استو برای اعداد دیگر کارایی ندارد
+        //eval: یکی از توابع جاوااسگریپت است که ما میتوانیم کد را به آن بدهیم تا برایمان اجرا کند
+
+        //در این کد میگیم ولیو را بگیر و آنرا به ولیو پیش فرض اضافه کن
+
+        var powflag = false;
+
+        function addToCalculator(value) {
+            document.getElementById('displayResult').value += value;
+
+            //در اینجا چک میکنیم اگر پوفلگ ترو بود اعداد را در یک آرایه با تابع اسپلیت نگه میداریم ئ میریزیم در یک متغیر
+            //و بعد ایندکس های آنرا میدهیم به تابع توان و سپس پوفلگ را فالس میکنیم
+            if (powflag) {
+                var numbers = document.getElementById('displayResult').value.split('^');
+                document.getElementById('displayResult').value = Math.pow(numbers[0], numbers[1]);
+                powflag = false;
+
+            }
+        }
+
+        //برای مساوی میگیم ولیو فعلی این آی دی را بگیر و آنرا ایول کن و محاسباتش را انجام بده و نتیجه را بریز در دیسپلی
+        function finialize() {
+            document.getElementById('displayResult').value = eval(document.getElementById('displayResult').value);
+        }
+
+        //دکمه ریست
+        //یعنی مقدار فعلی را بگیر و آنرا ریست کن و مساوی خالی کن
+        function reset() {
+            document.getElementById('displayResult').value = '';
+        }
+
+        //تا اینجای کد اون عملیت چهارگانه را داریم
+        //utf8icons.com : نیتوانیم آیکون برداریم
+        //برای مجاسبات پیچیده تر نمیتوانیم از همان تایع استفاده کنیم چون محاسبات متفاوت است
+        //اما برای توان باز هم متفاوت است
+        //تابع پاور دو عدد میگیرد کخ کدان را به توان کدام برساند
+
+        function MathCalculator(Mathfunc) {
+            if (Mathfunc == 'pow') {
+                powflag = true;
+                document.getElementById('displayResult').value += '^';
+            } else {
+                var val = document.getElementById('displayResult').value;
+                document.getElementById('displayResult').value = Math[Mathfunc](val);
+            }
+
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
